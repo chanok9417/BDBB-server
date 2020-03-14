@@ -11,8 +11,8 @@ router.get(
       title: 'BDBB',
       description: '천안불당고등학교 대나무숲',
       pubDate: new Date(),
-      feed_url: 'https://api.bamboo.buldang.xyz/rss',
-      site_url: 'https://bamboo.buldang.xyz/'
+      feed_url: 'https://api.buldang.xyz/rss',
+      site_url: 'https://bamboo.buldang.xyz'
     })
 
     const posts = await Post.getList()
@@ -50,7 +50,7 @@ router.get(
                     <h1>#${post.number}번_제보</h1>
                     ${post.title ? `<h2>${replaceLtGt(post.title)}</h2>` : ''}
                     <h3 class="op-kicker">${post.tag}</h3>
-                    <figure><img src="httpss://i.postimg.cc/Qd4bcD6d/Bamboo-Forest-baner.png" /></figure>
+                    <figure><img src="https://i.postimg.cc/Qd4bcD6d/Bamboo-Forest-baner.png" /></figure>
                     <time class="op-published" datetime=${publishedDate.toISOString()}>
                       ${timeText(publishedDate)}
                     </time>
