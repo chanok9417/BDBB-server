@@ -34,6 +34,7 @@
     "koa-logger": "^3.2.1",
     "koa-router": "^7.4.0",
     "koa-swagger-decorator": "^1.6.0",
+    "minimist": "^1.2.5",
     "mongoose": "^5.7.12",
     "reflect-metadata": "^0.1.13",
     "rss": "^1.2.2"
