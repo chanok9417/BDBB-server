@@ -71,7 +71,7 @@ app.use(
 )
 
 router.use('/posts', posts.routes(), posts.allowedMethods())
-router.use('/a1p4ca', a1p4ca.routes(), a1p4ca.allowedMethods())
+router.use('/bdbb', a1p4ca.routes(), a1p4ca.allowedMethods())
 router.use('/verify', verify.routes(), verify.allowedMethods())
 router.use('/rss', rss.routes(), rss.allowedMethods())
 
