@@ -114,7 +114,7 @@ router.post(
     ctx.body = result.getAuthorFields()
 
     if (body.title !== 'test') {
-      sendMessage('테스트\n테스트\nhttps://bamboo.buldang.xyz/bdbb')
+      sendMessage('새로운 제보가 올라왔습니다!\n학생들의 편의를 위해 빠른시일에 업로드 바랍니다 😊\n\nhttps://bamboo.buldang.xyz/bdbb')
     }
   }
 )
