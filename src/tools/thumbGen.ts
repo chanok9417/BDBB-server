@@ -54,12 +54,12 @@ export async function generateThumbnail(post: Post): Promise<void> {
     ctx.font = `${getTitleSize(title)}px "NanumBarunpenBold"`
     ctx.textAlign = 'center'
 
-    ctx.lineWidth = 0
+    ctx.lineWidth = 7
     ctx.strokeStyle = color.primaryDark
-    ctx.strokeText(title, 730, 330)
+    ctx.strokeText(title, 600, 330)
 
     ctx.fillStyle = color.primary
-    ctx.fillText(title, 730, 330)
+    ctx.fillText(title, 600, 330)
 
     const out = createWriteStream(`thumbnail/${number}.jpeg`)
     const stream = canvas.createJPEGStream({ quality: 1 })
