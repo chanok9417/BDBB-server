@@ -1,7 +1,5 @@
 /* eslint-disable import/first */
 
-require('dotenv-safe').config()
-
 import { setGlobalOptions } from '@typegoose/typegoose'
 setGlobalOptions({
   globalOptions: {
@@ -13,6 +11,8 @@ import * as Koa from 'koa'
 import * as logger from 'koa-logger'
 import * as bodyParser from 'koa-bodyparser'
 import * as json from 'koa-json'
+import * as mount from 'koa-mount'
+import * as serve from 'koa-static'
 import * as mongoose from 'mongoose'
 import * as helmet from 'koa-helmet'
 import * as cors from '@koa/cors'
@@ -25,7 +25,7 @@ import etag = require('koa-etag')
 import Router = require('koa-router')
 
 mongoose
-  .connect(process.env.MONGO_HOST || '', {
+  .connect(process.env.MONGO_HOST ?? '', {
     useFindAndModify: false,
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -44,6 +44,7 @@ app.use(conditional())
 app.use(etag())
 app.use(logger())
 app.use(bodyParser())
+app.use(mount('/thumbnail', serve('thumbnail')))
 
 app.use(
   async (ctx, next): Promise<void> => {
@@ -53,7 +54,7 @@ app.use(
         ctx.throw(ctx.status, ctx.message)
       }
     } catch (err) {
-      if (err.status) {
+      if (err.status != null) {
         ctx.status = err.status
         ctx.body = {
           error: err.message
@@ -77,4 +78,4 @@ router.use('/rss', rss.routes(), rss.allowedMethods())
 
 app.use(router.routes()).use(router.allowedMethods())
 
-app.listen(process.env.PORT || 3000, (): void => console.log('Server Starts!'))
+app.listen(process.env.PORT || 4000, (): void => console.log('Server Starts!'))
