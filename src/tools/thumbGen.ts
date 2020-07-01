@@ -35,7 +35,7 @@ export async function generateThumbnail(post: Post): Promise<void> {
 
     ctx.strokeRect(0, 0, 1200, 630)
 
-    ctx.drawImage(bdbb, -100, 200, 500, 500)
+    ctx.drawImage(bdbb, 100, 200, 500, 500)
 
     ctx.font = `20px "NanumBarunpenBold"`
     ctx.fillStyle = color.primaryDark
