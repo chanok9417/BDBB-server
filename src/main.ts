@@ -17,7 +17,7 @@ import * as mongoose from 'mongoose'
 import * as helmet from 'koa-helmet'
 import * as cors from '@koa/cors'
 import posts from './routes/posts'
-import a1p4ca from './routes/a1p4ca'
+import bdbb from './routes/bdbb'
 import verify from './routes/verify'
 import rss from './routes/rss'
 import conditional = require('koa-conditional-get')
@@ -72,7 +72,7 @@ app.use(
 )
 
 router.use('/posts', posts.routes(), posts.allowedMethods())
-router.use('/bdbb', a1p4ca.routes(), a1p4ca.allowedMethods())
+router.use('/bdbb', bdbb.routes(), bdbb.allowedMethods())
 router.use('/verify', verify.routes(), verify.allowedMethods())
 router.use('/rss', rss.routes(), rss.allowedMethods())
 
