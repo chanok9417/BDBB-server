@@ -51,8 +51,10 @@ export async function generateThumbnail(post: Post): Promise<void> {
 
     const title = post.title
 
+    ctx.font = `${getTitleSize(title)}px "NanumBarunpenBold"`
+    ctx.textAlign = 'center'
 
-    ctx.lineWidth = 7
+    ctx.lineWidth = 0
     ctx.strokeStyle = color.primaryDark
     ctx.strokeText(title, 730, 330)
 
