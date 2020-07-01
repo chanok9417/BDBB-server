@@ -11,7 +11,7 @@ router.get(
       title: 'BDBB',
       description: '천안불당고등학교 대나무숲',
       pubDate: new Date(),
-      feed_url: 'https://api.buldang.xyz/rss',
+      feed_url: 'https://api.bamboo.buldang.xyz/rss',
       site_url: 'https://bamboo.buldang.xyz'
     })
 
@@ -44,25 +44,26 @@ router.get(
                 <meta charset="utf-8">
                 <meta property="op:version" content="1.0.2">
                 <meta property="fb:use_automatic_ad_placement" content="enable=true ad_density=default">
+              </head>
               <body>
                 <article>
                   <header>
-                  <h1>#${post.number ?? '?'}번_제보</h1>
-                  ${
-                    post.title != null
-                      ? `<h2>${replaceLtGt(post.title)}</h2>`
-                      : ''
-                  }
-                  <h3 class="op-kicker">${post.tag}</h3>
-                  <figure><img src="https://api.buldang.xyz/thumbnail/${
-                    post.number as number
-                  }.jpeg" /></figure>                    
-                  <time class="op-published" datetime=${publishedDate.toISOString()}>
+                    <h1>#${post.number ?? '?'}번_제보</h1>
+                    ${
+                      post.title != null
+                        ? `<h2>${replaceLtGt(post.title)}</h2>`
+                        : ''
+                    }
+                    <h3 class="op-kicker">${post.tag}</h3>
+                    <figure><img src="https://api.buldang.xyz/thumbnail/${
+                      post.number as number
+                    }.jpeg" /></figure>
+                    <time class="op-published" datetime=${publishedDate.toISOString()}>
                       ${timeText(publishedDate)}
                     </time>
-                  <figure class="op-ad">
-                    <iframe width="300" height="250" style="border:0; margin:0;" src="https://www.facebook.com/adnw_request?placement=571304060247820_571304090247817&adtype=banner300x250"></iframe>
-                  </figure>
+                    <figure class="op-ad">
+                      <iframe width="300" height="250" style="border:0; margin:0;" src="https://www.facebook.com/adnw_request?placement=571304060247820_571304090247817&adtype=banner300x250"></iframe>
+                    </figure>
                   </header>
                   ${content}
                 </article>

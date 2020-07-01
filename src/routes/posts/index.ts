@@ -9,6 +9,7 @@ import authMiddleware from '../../middlewares/auth'
 import validatorMiddleware from '../../middlewares/validator'
 import { RequestQuery, NewPost, EditPost } from './types'
 import { sendMessage } from '../../apis/discord'
+import { generateThumbnail } from '../../tools/thumbGen'
 
 const router = new Router()
 
@@ -121,7 +122,7 @@ router.post(
     ctx.body = result.getAuthorFields()
 
     if (body.title !== 'test') {
-      sendMessage('새로운 제보가 올라왔습니다!\nhttps://bamboo.buldang.xyz/bdbb')
+      await sendMessage('새로운 제보가 올라왔습니다!\nhttps://bamboo.buldang.xyz/bdbb')
     }
   }
 )
@@ -142,8 +143,9 @@ router.patch(
       switch (body.status) {
         case PostStatus.Accepted:
           if (post.number != null)
-          throw new createError.UnavailableForLegalReasons()          
+            throw new createError.UnavailableForLegalReasons()
           result = await post.setAccepted()
+          await generateThumbnail(result)
           break
         case PostStatus.Rejected:
           if (body.reason == null) throw new createError.BadRequest()
@@ -170,11 +172,11 @@ router.delete(
     const post = isAdmin
       ? await Post.findById(ctx.params.arg)
       : await Post.findOne({ hash: ctx.params.arg })
-      if (post == null) throw new createError.NotFound()
+    if (post == null) throw new createError.NotFound()
 
-      isAdmin ? await post.remove() : await post.setDeleted()
+    isAdmin ? await post.remove() : await post.setDeleted()
 
-      if (!isAdmin) sendMessage('제보 삭제 요청입니다!')
+    if (!isAdmin) await sendMessage('제보 삭제 요청입니다!')
 
     ctx.status = 200
   }
