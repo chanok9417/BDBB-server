@@ -11,7 +11,7 @@ const color = {
 
 const getTitleSize = (text: string): number => {
   if (text.length < 11) return 100
-  else if (text.length < 16) return 70
+  else if (text.length < 16) return 80
   else return 55
 }
 
