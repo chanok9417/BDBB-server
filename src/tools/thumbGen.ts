@@ -17,8 +17,6 @@ const getTitleSize = (text: string): number => {
 
 export async function generateThumbnail(post: Post): Promise<void> {
   try {
-    const bdbb = await loadImage('assets/icon.png')
-
     registerFont('assets/NanumBarunpenBold.ttf', {
       family: 'NanumBarunpenBold'
     })
@@ -34,8 +32,6 @@ export async function generateThumbnail(post: Post): Promise<void> {
     ctx.strokeStyle = color.primaryDark
 
     ctx.strokeRect(0, 0, 1200, 630)
-
-    ctx.drawImage(bdbb, 100, 200, 500, 500)
 
     ctx.font = `20px "NanumBarunpenBold"`
     ctx.fillStyle = color.primaryDark
@@ -55,8 +51,6 @@ export async function generateThumbnail(post: Post): Promise<void> {
 
     const title = post.title
 
-    ctx.font = `${getTitleSize(title)}px "NanumBarunpenBold"`
-    ctx.textAlign = 'center'
 
     ctx.lineWidth = 7
     ctx.strokeStyle = color.primaryDark
