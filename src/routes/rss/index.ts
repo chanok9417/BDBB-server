@@ -11,7 +11,7 @@ router.get(
       title: 'BDBB',
       description: '천안불당고등학교 대나무숲',
       pubDate: new Date(),
-      feed_url: 'https://api.bamboo.buldang.xyz/rss',
+      feed_url: 'https://api.buldang.xyz/rss',
       site_url: 'https://bamboo.buldang.xyz'
     })
 
