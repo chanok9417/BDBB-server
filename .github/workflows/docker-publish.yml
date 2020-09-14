@@ -22,4 +22,3 @@ on:
               uses: Ilshidur/action-discord@master
               with:
                 args: '{{ EVENT_PAYLOAD.repository.full_name }} 프로젝트가 배포되었습니다.'
-        
