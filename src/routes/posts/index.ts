@@ -122,7 +122,7 @@ router.post(
     ctx.body = result.getAuthorFields()
 
     if (body.title !== 'test') {
-      await sendMessage('새로운 제보가 올라왔습니다!\nhttps://bamboo.buldang.xyz/bdbb')
+      await sendMessage('테스트용 제보가 올라왔습니다!\nhttps://bamboo.buldang.xyz/bdbb')
     }
   }
 )

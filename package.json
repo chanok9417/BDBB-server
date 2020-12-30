@@ -1,13 +1,17 @@
 {
   "name": "bdbb-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "BDBB-Backend",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node -r dotenv-safe/config --project tsconfig.json --files src/main.ts",
     "build": "tsc",
     "start": "node -r dotenv-safe/config dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Buldang-Bamboo/BDBB-server.git"
   },
   "author": "JoungChanok <chanok9417@kakao.com>",
   "license": "MIT",
@@ -37,6 +41,7 @@
     "koa-static": "^5.0.0",
     "koa-swagger-decorator": "^1.6.8",
     "mongoose": "^5.9.20",
+    "node-pre-gyp": "^0.17.0",
     "reflect-metadata": "^0.1.13",
     "rss": "^1.2.2"
   },
